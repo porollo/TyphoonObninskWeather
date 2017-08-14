@@ -3,7 +3,7 @@ package com.porollo.typhoonobninskweather.data.database;
 import io.realm.RealmObject;
 
 /**
- * Created by dporo on 10.08.2017.
+ * Created by Dmitriy S. Porollo on 14.08.2017.
  */
 
 public class Entity extends RealmObject {

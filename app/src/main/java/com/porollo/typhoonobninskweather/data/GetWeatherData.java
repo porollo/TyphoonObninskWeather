@@ -6,7 +6,7 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 
 /**
- * Created by dporo on 10.08.2017.
+ * Created by Dmitriy S. Porollo on 14.08.2017.
  */
 
 public class GetWeatherData {
@@ -14,113 +14,71 @@ public class GetWeatherData {
     public GetWeatherData() throws IOException {
     }
 
-    final static String URL = "http://typhoon-tower.obninsk.org/ru/10-minute.asp";
-    final String TAG = "td";
-
+    private final static String URL = "http://typhoon-tower.obninsk.org/ru/10-minute.asp";
+    private final String TAG = "td";
 
     Document doc = Jsoup.connect(URL).get();
 
     // Temperature values (300,217,121,73,25,8 meters)
-    Float td300temp = Float.valueOf(doc.select(TAG).get(5).text());
-    Float td217temp = Float.valueOf(doc.select(TAG).get(10).text());
-    Float td121temp = Float.valueOf(doc.select(TAG).get(15).text());
-    //Float td73temp = Float.valueOf(doc.select(TAG).get(20).text());
-    Float td25temp = Float.valueOf(doc.select(TAG).get(25).text());
-    Float td8temp = Float.valueOf(doc.select(TAG).get(30).text());
+    private String temp300 = doc.select(TAG).get(5).text();
+    private String temp217 = doc.select(TAG).get(10).text();
+    private String temp121 = doc.select(TAG).get(15).text();
+    private String temp73 = doc.select(TAG).get(20).text();
+    private String temp25 = doc.select(TAG).get(25).text();
+    private String temp8 = doc.select(TAG).get(30).text();
 
     // Wind values (300,217,121,73,25,8 meters)
-    //String td300wind = doc.select(TAG).get(3).text();
-    //Float td217wind = Float.valueOf(doc.select(TAG).get(8).text());
-    //Float td121wind = Float.valueOf(doc.select(TAG).get(13).text());
-    //Float td73wind = Float.valueOf(doc.select(TAG).get(18).text());
-    //Float td25wind = Float.valueOf(doc.select(TAG).get(23).text());
-    //Float td8wind = Float.valueOf(doc.select(TAG).get(28).text());
+    private String wind300 = doc.select(TAG).get(3).text();
+    private String wind217 = doc.select(TAG).get(8).text();
+    private String wind121 = doc.select(TAG).get(13).text();
+    private String wind73 = doc.select(TAG).get(18).text();
+    private String wind25 = doc.select(TAG).get(23).text();
+    private String wind8 = doc.select(TAG).get(28).text();
 
 
-    public Float getTd300temp() {
-        return td300temp;
+    // Temperature getters
+    public String getTemp300() {
+        return temp300;
+    }
+    public String getTemp217() {
+        return temp217;
+    }
+    public String getTemp121() {
+        return temp121;
+    }
+    public String getTemp73() { return temp73; }
+    public String getTemp25() { return temp25;}
+    public String getTemp8() { return temp8; }
+
+    // ...and setters
+    public void setTemp300(String temp300) {
+        this.temp300 = temp300;
+    }
+    public void setTemp217(String temp217) {
+        this.temp217 = temp217;
+    }
+    public void setTemp121(String temp121) {
+        this.temp121 = temp121;
+    }
+    public void set73temp (String temp73) { this.temp73 = temp73; }
+    public void setTemp25 (String temp25) { this.temp25 = temp25; }
+    public void setTemp8  (String temp8) {
+        this.temp8 = temp8;
     }
 
-    /*    public String getTd300wind() {
-            return td300wind;
-        }*/
+    // Wind getters
+    public String getWind300() { return wind300; }
+    public String getWind217() { return wind217; }
+    public String getWind121() { return wind121; }
+    public String getWind73() { return wind73; }
+    public String getWind25() { return wind25; }
+    public String getWind8() { return wind8; }
 
-    public void setTd300temp(Float td300temp) {
-        this.td300temp = td300temp;
-    }
-/*    public void setTd300wind(String td300wind) {
-        this.td300wind = td300wind;
-    }*/
-
-
-    public Float getTd217temp() {
-        return td217temp;
-    }
-    /*    public Float getTd217wind() {
-            return td217wind;
-        }*/
-    public void setTd217temp(Float td217temp) {
-        this.td217temp = td217temp;
-    }
-/*
-    public void setTd217wind(Float td217wind) {
-        this.td217wind = td217wind;
-    }
-*/
-
-    public Float getTd121temp() {
-        return td121temp;
-    }
-    /*
-        public Float getTd121wind() {
-            return td121wind;
-        }
-    */
-    public void setTd121temp(Float td121temp) {
-        this.td121temp = td121temp;
-    }
-/*
-    public void setTd121wind(Float td121wind) {
-        this.td121wind = td121wind;
-    }
-*/
-
-/*    public Float getTd73temp() {
-        return td73temp;
-    }*/
-    //public Float getTd73wind() { return td73wind; }
-/*
-    public void setTd73temp(Float td73temp) {
-        this.td73temp = td73temp;
-    }
-*/
-/*    public void setTd73wind(Float td73wind) {
-        this.td73wind = td73wind;
-    }*/
-
-    public Float getTd25temp() { return td25temp;}
-    /*
-        public Float getTd25wind() { return td25wind; }
-    */
-    public void setTd25temp(Float td25temp) { this.td25temp = td25temp; }
-/*
-    public void setTd25wind(Float td25wind) {
-        this.td25wind = td25wind;
-    }
-*/
-
-    public Float getTd8temp() { return td8temp; }
-    /*
-        public Float getTd8wind() {
-            return td8wind;
-        }
-    */
-    public void setTd8temp(Float td8temp) {
-        this.td8temp = td8temp;
-    }
-/*
-    public void setTd8wind(Float td8wind) {
-        this.td8wind = td8wind;
-    }
-*/
+    // ...and setters
+    public void setWind300(String wind300) { this.wind300 = wind300; }
+    public void setWind217(String wind217) { this.wind217 = wind217; }
+    public void setWind121(String wind121) { this.wind121 = wind121; }
+    public void setWind73(String wind73) { this.wind73 = wind73; }
+    public void setWind25(String wind25) { this.wind25 = wind25; }
+    public void setWind8(String wind8) { this.wind8 = wind8; }
 }

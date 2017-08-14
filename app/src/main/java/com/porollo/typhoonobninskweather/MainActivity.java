@@ -23,6 +23,10 @@ import com.porollo.typhoonobninskweather.data.database.Entity;
 
 import io.realm.Realm;
 
+/**
+ * Created by Dmitriy S. Porollo on 14.08.2017.
+ */
+
 public class MainActivity extends AppCompatActivity {
 
 
