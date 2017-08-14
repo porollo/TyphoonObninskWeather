@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Typhoon Obninsk Weather</string>
+    <string name="action_settings">Настройки</string>
+    <string name="about_settings">О приложении</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="temperature_tab_label">Температура</string>
+    <string name="wind_tab_label">Ветер</string>
+    <string name="humidity_tab_label">Влажность</string>
+</resources>

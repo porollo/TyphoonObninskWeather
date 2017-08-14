@@ -3,4 +3,8 @@
     <string name="action_settings">Settings</string>
     <string name="about_settings">About</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="temperature_tab_label">Temperature</string>
+    <string name="wind_tab_label">Wind</string>
+    <string name="humidity_tab_label">Humidity</string>
 </resources>
