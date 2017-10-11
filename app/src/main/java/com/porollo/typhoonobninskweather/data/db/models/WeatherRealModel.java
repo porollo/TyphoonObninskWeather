@@ -1,18 +1,17 @@
-package com.porollo.typhoonobninskweather.data.database;
+package com.porollo.typhoonobninskweather.data.db.models;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by Dmitriy S. Porollo on 14.08.2017.
  */
 
-public class Entity extends RealmObject {
+public class WeatherRealModel extends RealmObject {
 
-    public Entity() {
-    }
-
+    @PrimaryKey
     private long id;
-    private int height;
+    private String height;
     private float temperature;
     private float humidity;
     private float wind;
@@ -20,7 +19,7 @@ public class Entity extends RealmObject {
     public long getId() {
         return id;
     }
-    public Integer getHeight() {
+    public String getHeight() {
         return height;
     }
     public float getTemperature() {
@@ -36,7 +35,7 @@ public class Entity extends RealmObject {
     public void setId(long id) {
         this.id = id;
     }
-    public void setHeight(Integer height) {
+    public void setHeight(String height) {
         this.height = height;
     }
     public void setTemperature(float temperature) {
