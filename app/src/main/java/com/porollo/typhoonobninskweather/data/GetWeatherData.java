@@ -8,14 +8,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import io.reactivex.Observable;
+
 /**
  * Created by Dmitriy S. Porollo on 14.08.2017.
  */
 
 public class GetWeatherData {
 
-    public GetWeatherData(Document doc) throws IOException {
-        this.doc = doc;
+    public GetWeatherData() throws IOException {
     }
 
     private final static String URL = "http://typhoon-tower.obninsk.org/ru/10-minute.asp";
@@ -32,7 +33,7 @@ public class GetWeatherData {
 
     // Temperatures values (300,217,121,73,25,8 meters)
 
-    public Map<Integer, Float> getTempMap() {
+    public HashMap<Integer, Float> getTempMap() {
 
         HashMap<Integer, Float> temperaturesMap = new HashMap<>();
 
@@ -46,7 +47,7 @@ public class GetWeatherData {
         return temperaturesMap;
     }
 
-    public Map<Integer, String> getWindMap() {
+    public HashMap<Integer, String> getWindMap() {
 
         HashMap<Integer, String> windMap = new HashMap<>();
 
