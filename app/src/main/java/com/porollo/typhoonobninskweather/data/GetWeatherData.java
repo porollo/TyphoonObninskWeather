@@ -1,13 +1,12 @@
 package com.porollo.typhoonobninskweather.data;
 
-import android.util.ArrayMap;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Created by Dmitriy S. Porollo on 14.08.2017.
@@ -15,37 +14,49 @@ import java.util.Map;
 
 public class GetWeatherData {
 
-    public GetWeatherData() throws IOException {
+    public GetWeatherData(Document doc) throws IOException {
+        this.doc = doc;
     }
 
     private final static String URL = "http://typhoon-tower.obninsk.org/ru/10-minute.asp";
     private final String TAG = "td";
 
+    private static final int HEIGHT300 = 300;
+    private static final int HEIGHT217 = 217;
+    private static final int HEIGHT121 = 121;
+    private static final int HEIGHT73 = 73;
+    private static final int HEIGHT25 = 25;
+    private static final int HEIGHT8 = 8;
+
     Document doc = Jsoup.connect(URL).get();
 
-    // Temperature values (300,217,121,73,25,8 meters)
+    // Temperatures values (300,217,121,73,25,8 meters)
 
-    public void getTempMap() {
+    public Map<Integer, Float> getTempMap() {
 
-        HashMap<Integer, String> temperaturesMap = new HashMap<>();
+        HashMap<Integer, Float> temperaturesMap = new HashMap<>();
 
-        temperaturesMap.put(300, doc.select(TAG).get(5).text());
-        temperaturesMap.put(217, doc.select(TAG).get(10).text());
-        temperaturesMap.put(121, doc.select(TAG).get(15).text());
-        temperaturesMap.put(73, doc.select(TAG).get(20).text());
-        temperaturesMap.put(25, doc.select(TAG).get(25).text());
-        temperaturesMap.put(8, doc.select(TAG).get(30).text());
+        temperaturesMap.put(HEIGHT300, Float.parseFloat(doc.select(TAG).get(5).text()));
+        temperaturesMap.put(HEIGHT217, Float.parseFloat(doc.select(TAG).get(10).text()));
+        temperaturesMap.put(HEIGHT121, Float.parseFloat(doc.select(TAG).get(15).text()));
+        temperaturesMap.put(HEIGHT73, Float.parseFloat(doc.select(TAG).get(20).text()));
+        temperaturesMap.put(HEIGHT25, Float.parseFloat(doc.select(TAG).get(25).text()));
+        temperaturesMap.put(HEIGHT8, Float.parseFloat(doc.select(TAG).get(30).text()));
+
+        return temperaturesMap;
     }
 
-    public void getWindMap() {
+    public Map<Integer, String> getWindMap() {
 
         HashMap<Integer, String> windMap = new HashMap<>();
 
-        windMap.put(300, doc.select(TAG).get(3).text());
-        windMap.put(217, doc.select(TAG).get(8).text());
-        windMap.put(121, doc.select(TAG).get(13).text());
-        windMap.put(73, doc.select(TAG).get(18).text());
-        windMap.put(25, doc.select(TAG).get(23).text());
-        windMap.put(8, doc.select(TAG).get(28).text());
+        windMap.put(HEIGHT300, doc.select(TAG).get(3).text());
+        windMap.put(HEIGHT217, doc.select(TAG).get(8).text());
+        windMap.put(HEIGHT121, doc.select(TAG).get(13).text());
+        windMap.put(HEIGHT73, doc.select(TAG).get(18).text());
+        windMap.put(HEIGHT25, doc.select(TAG).get(23).text());
+        windMap.put(HEIGHT8, doc.select(TAG).get(28).text());
+
+        return windMap;
     }
 }
