@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 import com.porollo.typhoonobninskweather.R;
 
+import io.realm.Realm;
+
 /**
  * Created by Dmitriy S. Porollo on 12.10.2017.
  */
