@@ -10,9 +10,9 @@ import java.io.IOException;
  * Created by Dmitriy S. Porollo on 15.08.2017.
  */
 
-public class GetMetarWeatherData {
+public class MetarWeatherData {
 
-    public GetMetarWeatherData() throws IOException{}
+    public MetarWeatherData() throws IOException{}
 
 
 
