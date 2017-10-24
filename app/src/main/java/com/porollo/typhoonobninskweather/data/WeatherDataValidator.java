@@ -13,7 +13,7 @@ public class WeatherDataValidator {
 
     public String getTempValidator() throws IOException {
 
-        WeatherData weatherData = new WeatherData();
+        WeatherDataImpl weatherData = new WeatherDataImpl();
 
 
         if (weatherData.temperature == "*") {

@@ -1,6 +1,6 @@
 package com.porollo.typhoonobninskweather;
 
-import com.porollo.typhoonobninskweather.data.WeatherData;
+import com.porollo.typhoonobninskweather.data.WeatherDataImpl;
 
 
 import java.io.IOException;
@@ -13,7 +13,7 @@ public class NewParser {
 
     public static void main(String[] args) throws IOException {
 
-        WeatherData weatherData = new WeatherData();
+        WeatherDataImpl weatherData = new WeatherDataImpl();
 
 
         System.out.println(weatherData.get8MetersTemperature());
